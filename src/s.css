@@ -1,0 +1,114 @@
+.support-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  .faq-section, .chatbot-section {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+  
+  .faq-section h3, .chatbot-section h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .faq-card {
+    padding: 1rem;
+    background: var(--gray-light);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--gray);
+    transition: transform 0.3s ease;
+  }
+  
+  .faq-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .faq-card h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .chatbot-messages {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--gray);
+  }
+  
+  .chat-welcome {
+    color: var(--text-secondary);
+    font-style: italic;
+    text-align: center;
+  }
+  
+  .message {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    max-width: 80%;
+  }
+  
+  .message.sent {
+    background: var(--primary);
+    color: var(--white);
+    margin-left: auto;
+  }
+  
+  .message.received {
+    background: #e5e7eb;
+    color: var(--text-primary);
+  }
+  
+  .message span {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    display: block;
+    margin-top: 0.25rem;
+  }
+  
+  .chat-loading {
+    color: var(--text-secondary);
+    font-style: italic;
+    text-align: center;
+  }
+  
+  .chatbot-form {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .chatbot-form textarea {
+    flex: 1;
+    padding: 0.875rem;
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--white);
+    transition: all 0.3s ease;
+  }
+  
+  .chatbot-form textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  }
+  
+  .chatbot-form button:disabled {
+    background: #a3bffa;
+    cursor: not-allowed;
+  }

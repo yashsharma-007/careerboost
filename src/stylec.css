@@ -1,0 +1,416 @@
+/* src/styles.css (only contest-related styles updated) */
+
+/* General Variables */
+:root {
+  --bg-color: #f9fafb;
+  --white: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --primary: #3b82f6;
+  --secondary: #2563eb;
+  --dark-bg: #1e1e1e;
+  --dark-card: #2d2d2d;
+  --dark-text: #e2e8f0;
+  --dark-border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] {
+  --bg-color: #1e1e1e;
+  --white: #2d2d2d;
+  --text-primary: #e2e8f0;
+  --text-secondary: #a1a1aa;
+}
+
+/* Contests Page Styles */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background: var(--bg-color);
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Problem Form */
+.problem-form-container {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2.5rem;
+  border: 1px solid #e0e6f0;
+  transition: all 0.3s ease;
+}
+
+.problem-form-container:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.problem-form-container h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.problem-form-container h3 svg {
+  color: var(--primary);
+}
+
+.problem-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.problem-form select,
+.problem-form input,
+.problem-form textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+  color: var(--text-primary);
+}
+
+.problem-form select:focus,
+.problem-form input:focus,
+.problem-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+  transform: translateY(-1px);
+  background: var(--white);
+}
+
+.problem-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.problem-form button {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.problem-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+/* Contests List */
+.contests-list {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2.5rem;
+  border: 1px solid #e0e6f0;
+  transition: all 0.3s ease;
+}
+
+.contest-card {
+  padding: 1.5rem;
+  border-bottom: 1px solid #eef2f7;
+  transition: all 0.3s ease;
+}
+
+.contest-card:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+}
+
+.contest-card h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.contest-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.problems-list {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.problem-card {
+  background: linear-gradient(135deg, #f9fafb, #eef2f7);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e6f0;
+}
+
+.problem-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+}
+
+.problem-card h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.problem-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Code Editor */
+.code-editor {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2.5rem;
+  border: 1px solid #e0e6f0;
+  transition: all 0.3s ease;
+}
+
+.code-editor h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.code-editor h3 svg {
+  color: var(--primary);
+}
+
+.code-editor textarea {
+  width: 100%;
+  padding: 1.25rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  line-height: 1.5;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  min-height: 300px;
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+.code-editor textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.code-editor button {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.code-editor button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.output {
+  margin-top: 2rem;
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e0e6f0;
+}
+
+.output h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.output pre {
+  background: #1e1e1e;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #d4d4d4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Leaderboard */
+.leaderboard {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e6f0;
+  transition: all 0.3s ease;
+}
+
+.leaderboard-section {
+  margin-bottom: 2rem;
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e0e6f0;
+}
+
+.leaderboard-section li {
+  padding: 1rem;
+  border-bottom: 1px solid #eef2f7;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.leaderboard-section li:hover {
+  background: #f1f5f9;
+  transform: translateX(5px);
+}
+
+/* Dark Mode Enhancements */
+[data-theme="dark"] .header,
+[data-theme="dark"] .problem-form-container,
+[data-theme="dark"] .contests-list,
+[data-theme="dark"] .code-editor,
+[data-theme="dark"] .leaderboard {
+  background: var(--dark-bg);
+  border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .problem-form select,
+[data-theme="dark"] .problem-form input,
+[data-theme="dark"] .problem-form textarea {
+  background: var(--dark-card);
+  border-color: var(--dark-border);
+  color: var(--dark-text);
+}
+
+[data-theme="dark"] .contest-card,
+[data-theme="dark"] .problem-card {
+  background: var(--dark-card);
+  border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .output,
+[data-theme="dark"] .leaderboard-section {
+  background: var(--dark-card);
+  border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .leaderboard-section li {
+  border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .leaderboard-section li:hover {
+  background: var(--dark-bg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  .header h2 {
+    font-size: 1.5rem;
+  }
+
+  .problem-form-container,
+  .contests-list,
+  .code-editor,
+  .leaderboard {
+    padding: 1.5rem;
+  }
+
+  .problems-list {
+    grid-template-columns: 1fr;
+  }
+
+  .contest-card h4 {
+    font-size: 1.25rem;
+  }
+
+  .problem-card h5 {
+    font-size: 1.125rem;
+  }
+
+  .code-editor textarea {
+    min-height: 200px;
+  }
+}

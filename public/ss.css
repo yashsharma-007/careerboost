@@ -1,0 +1,391 @@
+/* Base Styles */
+:root {
+    --primary-color: #5e97f6;
+    --secondary-color: #52c46a;
+    --accent-color: #f06b59;
+    --text-color: #f1f1f1;
+    --background-color: #121212;
+    --card-bg: #1e1e1e;
+    --header-bg: #1a1a1a;
+    --footer-bg: #1a1a1a;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --background: #121212;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --primary: #5e97f6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--header-bg);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.logo:hover::after {
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: var(--text-color);
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    border-radius: 4px;
+}
+
+.dropbtn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--primary-color);
+}
+
+.dropdown-content {
+    position: absolute;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    background-color: var(--card-bg);
+    min-width: 200px;
+    box-shadow: var(--shadow);
+    border-radius: 8px;
+    transform: translateY(20px);
+    transition: var(--transition);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.dropdown-content p {
+    padding: 12px 16px;
+    font-weight: bold;
+    color: var(--primary-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: var(--transition);
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(66, 133, 244, 0.1);
+    color: var(--primary-color);
+    padding-left: 20px;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.signin-btn, .signup-btn {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.signin-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.signup-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.signin-btn:hover, .signup-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.signin-btn:active, .signup-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section Styles */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#3dCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem; 
+    margin-top: 15rem;/* Adjust if needed */
+    transform: translateY(10px); /* Reduced for better placement */
+    opacity: 0;
+    animation: fadeUp 1s forwards 0.5s;
+}
+
+/* Center and move down the hero paragraph text */
+.hero p {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    margin-top: 30rem; /* Adjusted to move down */
+    max-width: 700px;
+    text-align: center;
+    transform: translateY(10px); /* Reduced */
+    opacity: 0;
+    animation: fadeUp 1s forwards 0.8s;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Features Section */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 5rem 5%;
+    background-color: var(--background-color);
+    position: relative;
+    z-index: 1;
+}
+
+/* Highlight the features */
+.feature {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    transform: translateY(50px);
+    opacity: 0;
+    border: 2px solid var(--primary-color); /* Added border */
+    color: var(--primary-color); /* Changed text color */
+    background-image: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); /* Gradient background */
+    color: white; /* Text color */
+}
+
+.feature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--primary-color);
+}
+
+.feature:nth-child(2n)::before {
+    background-color: var(--secondary-color);
+}
+
+.feature:nth-child(3n)::before {
+    background-color: var(--accent-color);
+}
+
+.feature:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-color); /* Change background on hover */
+    color: white; /* Change text color on hover */
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--footer-bg);
+    padding: 3rem 5%;
+    transition: var(--transition);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+}
+
+.footer-section ul li a::before {
+    content: "→";
+    position: absolute;
+    left: -15px;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.footer-section ul li a:hover {
+    color: var(--primary-color);
+    padding-left: 15px;
+}
+
+.footer-section ul li a:hover::before {
+    opacity: 1;
+    left: 0;
+}
+
+footer > p {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Animation Classes */
+.animated-icon {
+    display: inline-block;
+    margin-right: 8px;
+    transition: var(--transition);
+}
+
+.rotate-icon {
+    transform: rotate(360deg);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    nav {
+        width: 100%;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .dropdown {
+        margin: 5px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .container1 {
+        position: absolute;
+        padding: 0 1rem;
+        top: 300px;
+    }
+}
+

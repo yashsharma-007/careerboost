@@ -1,6 +1,15 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
+<<<<<<< HEAD
 import { FaUser, FaSignOutAlt, FaTrophy, FaBook, FaBriefcase, FaEdit } from 'react-icons/fa';
+=======
+import { FaUser, FaCog, FaSignOutAlt, FaTrophy, FaBook, FaBriefcase, FaEdit, FaFileAlt, FaTasks, FaComments, FaUsers, FaHome, FaLink, FaGraduationCap, FaCode, FaAward, FaIdCard, FaGithub, FaLinkedin, FaGlobe } from 'react-icons/fa';
+import Sidebar from './Sidebar';
+import '../profile.css';
+import '../global.css'; // For variables and spinner
+import '../sidebar.css';
+import '../main.css';
+>>>>>>> 1a629c3 (Initial commit)
 
 const Profile = ({ user, onLogout, setView }) => {
   const [profile, setProfile] = useState({
@@ -47,11 +56,18 @@ const Profile = ({ user, onLogout, setView }) => {
     }
   };
 
+<<<<<<< HEAD
   if (loading) return (
     <div className="flex items-center justify-center min-h-screen bg-secondary">
       <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-primary"></div>
     </div>
   );
+=======
+  // Get first letter of username for avatar placeholder
+  const getInitial = () => {
+    return profile.username ? profile.username.charAt(0).toUpperCase() : 'U';
+  };
+>>>>>>> 1a629c3 (Initial commit)
 
   return (
     <div className="flex min-h-screen bg-gradient-to-br from-secondary to-gray-100">
@@ -158,6 +174,7 @@ const Profile = ({ user, onLogout, setView }) => {
               </button>
             </form>
           ) : (
+<<<<<<< HEAD
             <div className="space-y-4 text-gray-700">
               <p className="flex items-center">
                 <span className="font-medium text-primary w-32">Role:</span> 
@@ -180,6 +197,70 @@ const Profile = ({ user, onLogout, setView }) => {
               <p className="flex items-start">
                 <span className="font-medium text-primary w-32">Achievements:</span> 
                 <span className="flex-1">{profile.achievements || 'None yet'}</span>
+=======
+            <div className="profile-display">
+              <div className="profile-avatar">
+                <div className="avatar-placeholder">
+                  {getInitial()}
+                </div>
+                <div className="profile-info">
+                  <h3>{profile.username || 'User'}</h3>
+                  <span className="role-tag">{profile.role}</span>
+                  {profile.bio && <p className="bio">{profile.bio}</p>}
+                </div>
+              </div>
+
+              <p>
+                <strong><FaCode /> Skills</strong>
+                <div>
+                  {profile.skills.length ? profile.skills.map(skill => (
+                    <span key={skill} className="skill-tag">{skill}</span>
+                  )) : 'None yet'}
+                </div>
+              </p>
+
+              <p>
+                <strong><FaGraduationCap /> Education</strong>
+                <div>{profile.education.degree || 'Not provided'}</div>
+              </p>
+
+              <p>
+                <strong><FaBriefcase /> Work Experience</strong>
+                <div>{profile.work_experience.role || 'Not provided'}</div>
+              </p>
+
+              <p>
+                <strong><FaAward /> Achievements</strong>
+                <div className="achievements">{profile.achievements || 'None yet'}</div>
+              </p>
+
+              <p>
+                <strong><FaUsers /> Social Links</strong>
+                <div className="social-links">
+                  {profile.social_links.linkedin && (
+                    <a href={profile.social_links.linkedin} target="_blank" rel="noopener noreferrer">
+                      <FaLinkedin /> LinkedIn
+                    </a>
+                  )}
+                  {profile.social_links.github && (
+                    <a href={profile.social_links.github} target="_blank" rel="noopener noreferrer">
+                      <FaGithub /> GitHub
+                    </a>
+                  )}
+                  {!profile.social_links.linkedin && !profile.social_links.github && 'None yet'}
+                </div>
+              </p>
+
+              <p>
+                <strong><FaGlobe /> Portfolio</strong>
+                <div>
+                  {profile.portfolio_url ? (
+                    <a href={profile.portfolio_url} target="_blank" rel="noopener noreferrer" className="portfolio-link">
+                      <FaGlobe /> {profile.portfolio_url}
+                    </a>
+                  ) : 'Not provided'}
+                </div>
+>>>>>>> 1a629c3 (Initial commit)
               </p>
             </div>
           )}
